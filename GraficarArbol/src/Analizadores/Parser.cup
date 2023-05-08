@@ -1,0 +1,27 @@
+package Analizadores;
+import java_cup.runtime.*;
+import java.util.ArrayList;
+
+parser code
+{://Codigo visible
+    public void syntax_error(Symbol s){
+        System.out.println("Error sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+    }
+
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
+        System.out.println("Error NR de sintaxis: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+    }
+
+:}
+
+terminal
+
+
+nonterminal Codigo;
+
+
+nonterminal
+
+
+
+start with Codigo;
