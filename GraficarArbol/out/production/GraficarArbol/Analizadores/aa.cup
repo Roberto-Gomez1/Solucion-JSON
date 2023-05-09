@@ -1,0 +1,134 @@
+package Analizadores;
+import java_cup.runtime.*;
+import java.util.ArrayList;
+
+parser code
+{://Codigo visible
+    public ArrayList<Nodo_binario> arboles = new ArrayList<>();
+    public int contador_member,contador_val,contador_objects,contador_corchetes,contador_array=0;
+    public void syntax_error(Symbol s){
+        System.out.println("Error sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+    }
+
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
+        System.out.println("Error NR de sintaxis: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+    }
+
+:}
+
+terminal LLAVE_ABRE, LLAVE_CIERRA, CORCH_ABRE, CORCH_CIERRA, COMA, DOS_PUNTOS, CADENA, ENTERO, DECIMAL, RTRUE, RFALSE, RNULL;
+
+non terminal json,object, array, members,member,elements,value;
+precedence left COMA;
+
+start with json;
+
+json ::= object:a  {:System.out.println("digraph G{\njson[label=\"json\"]\n    json -> object \nobject->llaveabre\nobject->members\nobject->llavecierra\n"+a+"}");:} |
+        array:b{:System.out.println(b);:};
+
+object ::= LLAVE_ABRE:a LLAVE_CIERRA:b {::}|
+    LLAVE_ABRE:a members:b LLAVE_CIERRA:c {:
+
+        String cad = "";
+        cad+="llaveabre[label=\""+a+"\"]\n";
+        cad+=b+"\n";
+        cad+="llavecierra[label=\""+c+"\"]\n";
+        RESULT=cad;
+     :} ;
+
+members ::= member:a{:
+            String cad = "";
+            cad+="members->member\n";
+            cad+="members[label=\"members\"]\n";
+            cad+=a;
+            RESULT = cad;:}
+          | members:a COMA:b member:c{:
+              String cad = "";
+
+              cad+=a;
+              cad+="coma[label=\""+b+"\"]\n";
+              cad += c;
+              RESULT=cad;
+              :};
+
+member ::= CADENA:a DOS_PUNTOS:b value:c {:
+    String cad = "";
+    cad+="member->cadena\n";
+    cad+="member->dospuntos\n";
+    cad+="member->value\n";
+    cad+="member[label=\"member\"]\n";
+    cad+="cadena[label="+a+"]\n";
+    cad+="dospuntos[label=\""+b+"\"]\n";
+    cad+=c;
+    RESULT=cad;
+:};
+
+array ::= CORCH_ABRE:a CORCH_CIERRA:b{::}
+        | CORCH_ABRE:a elements:b CORCH_CIERRA:c{:
+
+        String cad = "";
+        cad +=b+"\n";
+        RESULT =cad;:};
+
+elements ::= value:a {:
+                    String concatenacion="";
+                    concatenacion+="elements[label=\"elements\"]\n";
+                    concatenacion+="elements->value\n";
+                    concatenacion+= a;
+                    RESULT =concatenacion;:}
+           | elements:a COMA:b value:c{:
+
+           String concatenacion="";
+           concatenacion+=a;
+           concatenacion+=b+"\n";
+           concatenacion+=c;
+           RESULT =concatenacion;:};
+
+value ::= CADENA:a {:
+                        String cad = "";
+                        cad +="value[label=\"value\"]\n";
+                        cad +=a;
+                        RESULT =cad;:}
+        | ENTERO:a {:String cad = "";
+                                            cad+="CADENA\n";
+                                             cad +=a;
+                                             RESULT =cad;:}
+        | DECIMAL:a {:
+        String cad = "";
+        cad+="DECIMAL\n";
+                                              cad +=a;
+                                              RESULT =cad;:}
+        | object:a {:String cad = "";
+        cad+="value-> object"+contador_objects+"\n";
+        cad+="object"+contador_objects+"->llaveabre"+contador_corchetes+"\n";
+        cad+="object"+contador_objects+"->members"+contador_corchetes+"\n";
+        cad+="object"+contador_objects+"->llavecierra"+contador_corchetes+"\n";
+        cad+="llaveabre"+contador_objects+"[label=\""+a+"\"]\n";
+        cad+="llavecierra"+contador_objects+"[label=\""+c+"\"]\n";
+        contador_objects++;
+                                             cad +=a;
+                                             RESULT =cad;:}
+        | array:a {:String cad = "";
+        cad+="value"+contador_val+"->array"+contador_array+"\n";
+                cad+="array"+contador_array+"->corchabre\n";
+                cad+="array"+contador_array+"->elements\n";
+                cad+="array-"+contador_array+">corchcierra\n";
+                cad +="corchabre[label=\""+a+"\"]\n";
+
+                cad +="corchcierra[label=\""+c+"\"]\n";
+                contador_corchetes++;
+        contador_val++;
+                                            cad +=a;
+                                            RESULT =cad;:}
+        | RTRUE:a {:String cad = "";
+        cad+="RTRUE\n";
+                                            cad +=a;
+                                            RESULT =cad;:}
+        | RFALSE:a {:String cad = "";
+        cad+="RTRUE\n";
+                                             cad +=a;
+                                             RESULT =cad;:}
+        | RNULL:a{:String cad = "";
+        cad+="RTRUE\n";
+                                           cad +=a;
+                                           RESULT =cad;:};

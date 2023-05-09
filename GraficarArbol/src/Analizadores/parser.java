@@ -47,28 +47,32 @@ public class parser extends java_cup.runtime.lr_parser {
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
     "\000\036\000\006\004\005\006\007\001\002\000\004\002" +
-    "\000\001\002\000\006\005\030\012\032\001\002\000\004" +
-    "\002\027\001\002\000\024\004\005\006\007\007\020\012" +
-    "\011\013\017\014\013\015\014\016\022\017\015\001\002" +
-    "\000\004\002\uffff\001\002\000\010\005\ufff5\007\ufff5\010" +
-    "\ufff5\001\002\000\006\007\025\010\024\001\002\000\010" +
-    "\005\ufff3\007\ufff3\010\ufff3\001\002\000\010\005\ufff0\007" +
-    "\ufff0\010\ufff0\001\002\000\010\005\uffee\007\uffee\010\uffee" +
-    "\001\002\000\010\005\ufff2\007\ufff2\010\ufff2\001\002\000" +
-    "\010\005\ufff4\007\ufff4\010\ufff4\001\002\000\012\002\ufff9" +
-    "\005\ufff9\007\ufff9\010\ufff9\001\002\000\010\005\ufff1\007" +
-    "\ufff1\010\ufff1\001\002\000\010\005\uffef\007\uffef\010\uffef" +
-    "\001\002\000\006\007\ufff7\010\ufff7\001\002\000\022\004" +
-    "\005\006\007\012\011\013\017\014\013\015\014\016\022" +
-    "\017\015\001\002\000\012\002\ufff8\005\ufff8\007\ufff8\010" +
-    "\ufff8\001\002\000\006\007\ufff6\010\ufff6\001\002\000\004" +
-    "\002\001\001\002\000\012\002\ufffe\005\ufffe\007\ufffe\010" +
-    "\ufffe\001\002\000\006\005\037\010\036\001\002\000\004" +
-    "\011\034\001\002\000\006\005\ufffc\010\ufffc\001\002\000" +
-    "\022\004\005\006\007\012\011\013\017\014\013\015\014" +
-    "\016\022\017\015\001\002\000\006\005\ufffa\010\ufffa\001" +
-    "\002\000\004\012\032\001\002\000\012\002\ufffd\005\ufffd" +
-    "\007\ufffd\010\ufffd\001\002\000\006\005\ufffb\010\ufffb\001" +
+    "\000\001\002\000\024\004\005\005\033\006\007\012\011" +
+    "\013\017\014\013\015\014\016\022\017\015\001\002\000" +
+    "\004\002\027\001\002\000\024\004\005\006\007\007\020" +
+    "\012\011\013\017\014\013\015\014\016\022\017\015\001" +
+    "\002\000\004\002\uffff\001\002\000\012\005\ufff5\007\ufff5" +
+    "\010\ufff5\011\ufff5\001\002\000\006\007\025\010\024\001" +
+    "\002\000\012\005\ufff3\007\ufff3\010\ufff3\011\ufff3\001\002" +
+    "\000\012\005\ufff0\007\ufff0\010\ufff0\011\ufff0\001\002\000" +
+    "\012\005\uffee\007\uffee\010\uffee\011\uffee\001\002\000\012" +
+    "\005\ufff2\007\ufff2\010\ufff2\011\ufff2\001\002\000\012\005" +
+    "\ufff4\007\ufff4\010\ufff4\011\ufff4\001\002\000\014\002\ufff9" +
+    "\005\ufff9\007\ufff9\010\ufff9\011\ufff9\001\002\000\012\005" +
+    "\ufff1\007\ufff1\010\ufff1\011\ufff1\001\002\000\012\005\uffef" +
+    "\007\uffef\010\uffef\011\uffef\001\002\000\006\007\ufff7\010" +
+    "\ufff7\001\002\000\022\004\005\006\007\012\011\013\017" +
+    "\014\013\015\014\016\022\017\015\001\002\000\014\002" +
+    "\ufff8\005\ufff8\007\ufff8\010\ufff8\011\ufff8\001\002\000\006" +
+    "\007\ufff6\010\ufff6\001\002\000\004\002\001\001\002\000" +
+    "\006\005\037\010\036\001\002\000\006\005\ufffc\010\ufffc" +
+    "\001\002\000\004\011\034\001\002\000\014\002\ufffe\005" +
+    "\ufffe\007\ufffe\010\ufffe\011\ufffe\001\002\000\022\004\005" +
+    "\006\007\012\011\013\017\014\013\015\014\016\022\017" +
+    "\015\001\002\000\006\005\ufffa\010\ufffa\001\002\000\022" +
+    "\004\005\006\007\012\011\013\017\014\013\015\014\016" +
+    "\022\017\015\001\002\000\014\002\ufffd\005\ufffd\007\ufffd" +
+    "\010\ufffd\011\ufffd\001\002\000\006\005\ufffb\010\ufffb\001" +
     "\002" });
 
   /** Access to parse-action table. */
@@ -78,17 +82,18 @@ public class parser extends java_cup.runtime.lr_parser {
   protected static final short[][] _reduce_table = 
     unpackFromStrings(new String[] {
     "\000\036\000\010\002\005\003\003\004\007\001\001\000" +
-    "\002\001\001\000\006\005\030\006\032\001\001\000\002" +
-    "\001\001\000\012\003\015\004\020\007\011\010\022\001" +
+    "\002\001\001\000\014\003\015\004\020\005\027\006\030" +
+    "\010\031\001\001\000\002\001\001\000\012\003\015\004" +
+    "\020\007\011\010\022\001\001\000\002\001\001\000\002" +
+    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
     "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\002\001\001\000\010\003\015\004\020\010\025\001\001" +
+    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
     "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
-    "\001\001\000\002\001\001\000\002\001\001\000\010\003" +
-    "\015\004\020\010\025\001\001\000\002\001\001\000\002" +
-    "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
-    "\001\000\002\001\001\000\002\001\001\000\010\003\015" +
-    "\004\020\010\034\001\001\000\002\001\001\000\004\006" +
-    "\037\001\001\000\002\001\001\000\002\001\001" });
+    "\001\001\000\010\003\015\004\020\010\034\001\001\000" +
+    "\002\001\001\000\012\003\015\004\020\006\037\010\031" +
+    "\001\001\000\002\001\001\000\002\001\001" });
 
   /** Access to <code>reduce_goto</code> table. */
   public short[][] reduce_table() {return _reduce_table;}
@@ -127,9 +132,9 @@ public class parser extends java_cup.runtime.lr_parser {
 
 
 //Codigo visible
-    public ArrayList<Nodo_binario> arboles = new ArrayList<>();
-    public int contador_member,contador_val,contador_objects=0;
+    public int contador_llaves,contador_members,contador_member,contador_array,contador_elements,contador_value,contador_coma,auxcon_coma=0;
     public void syntax_error(Symbol s){
+
         System.out.println("Error sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
     }
 
@@ -184,7 +189,13 @@ class CUP$parser$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		System.out.println("digraph G{\njson[label=\"json\"]\n    json -> object \nobject->llaveabre\nobject->members\nobject->llavecierra\n"+a+"}");
+		
+String texto="";
+if (a instanceof String){
+    texto=((String)a).toString();
+}
+Automata nodo = new Automata(texto);
+
               CUP$parser$result = parser.getSymbolFactory().newSymbol("json",0, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -232,9 +243,16 @@ class CUP$parser$actions {
 		
 
         String cad = "";
-        cad+="llaveabre[label=\""+a+"\"]\n";
-        cad+=b+"\n";
-        cad+="llavecierra[label=\""+c+"\"]\n";
+        cad+="Object"+contador_llaves+"\n";
+        cad+="Object"+contador_llaves+"[label=\"Object\"]\n";
+        cad+="Object"+contador_llaves+" -> llaveA"+contador_llaves+"\n";
+        cad+="llaveA"+contador_llaves+"[label=\"{\"]\n";
+        cad+="Object"+contador_llaves+" -> ";
+        cad+=b;
+        cad+="Object"+contador_llaves+" -> llaveC"+contador_llaves+"\n";
+        cad+="llaveC"+contador_llaves+"[label=\"}\"]\n";
+        contador_llaves++;
+        contador_members++;
         RESULT=cad;
      
               CUP$parser$result = parser.getSymbolFactory().newSymbol("object",1, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
@@ -250,9 +268,11 @@ class CUP$parser$actions {
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
             String cad = "";
-            cad+="members->member\n";
-            cad+="members[label=\"members\"]\n";
+            cad+="members"+contador_members+"\n";
+            cad+="members"+contador_members+"[label=\"members\"]\n";
+            cad+="members"+contador_members+" -> ";
             cad+=a;
+
             RESULT = cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("members",3, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -273,18 +293,22 @@ class CUP$parser$actions {
 		Object c = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
               String cad = "";
+                      cad+=a;
+                      cad+="members"+contador_members+" -> COMA"+contador_coma+"\n";
+                      cad+="COMA"+contador_coma+"[label=\",\"]\n";
+                      cad+="members"+contador_members+" -> ";
+                      cad+=c;
 
-              cad+=a;
-              cad+="coma[label=\""+b+"\"]\n";
-              cad += c;
+                      contador_coma++;
               RESULT=cad;
+
               
               CUP$parser$result = parser.getSymbolFactory().newSymbol("members",3, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 7: // member ::= CADENA DOS_PUNTOS value 
+          case 7: // member ::= value DOS_PUNTOS value 
             {
               Object RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)).left;
@@ -298,13 +322,15 @@ class CUP$parser$actions {
 		Object c = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
     String cad = "";
-    cad+="member->cadena\n";
-    cad+="member->dospuntos\n";
-    cad+="member->value\n";
-    cad+="member[label=\"member\"]\n";
-    cad+="cadena[label="+a+"]\n";
-    cad+="dospuntos[label=\""+b+"\"]\n";
-    cad+=c;
+            cad+="member"+contador_member+"\n";
+            cad+="member"+contador_member+"[label=\"member\"]\n";
+            cad+="member"+contador_member+" -> ";
+            cad+=a;
+            cad+="member"+contador_member+" -> puntos"+contador_member+"\n";
+            cad+="puntos"+contador_member+"[label=\":\"]\n";
+            cad+="member"+contador_member+" -> ";
+            cad+=c;
+            contador_member++;
     RESULT=cad;
 
               CUP$parser$result = parser.getSymbolFactory().newSymbol("member",4, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
@@ -340,15 +366,17 @@ class CUP$parser$actions {
 		int cright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object c = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-
-        String cad = "";
-        cad +="array\n";
-        cad+="array->corchabre\n";
-        cad+="array->elements\n";
-        cad+="array->corchcierra\n";
-        cad +="corchabre[label=\""+a+"\"]\n";
-        cad +=b+"\n";
-        cad +="corchcierra[label=\""+c+"\"]\n";
+    String cad = "";
+        cad+="array"+contador_array+"\n";
+        cad+="array"+contador_array+"[label=\"Array\"]\n";
+        cad+="array"+contador_array+" -> corchA"+contador_array+"\n";
+        cad+="corchA"+contador_array+"[label=\"[\"]\n";
+        cad+="array"+contador_array+" -> ";
+        cad+=b+"\n";
+        cad+="array"+contador_array+" -> corchC"+contador_array+"\n";
+        cad+="corchC"+contador_array+"[label=\"]\"]\n";
+        contador_array++;
+        contador_elements++;
         RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("array",2, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -362,11 +390,14 @@ class CUP$parser$actions {
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-                    String concatenacion="";
-                    concatenacion+="elements[label=\"elements\"]\n";
-                    concatenacion+="elements->value\n";
-                    concatenacion+= a;
-                    RESULT =concatenacion;
+                    String cad = "";
+                    cad+="elements"+contador_elements+"\n";
+                    cad+="elements"+contador_elements+"[label=\"elements\"]\n";
+                    cad+="elements"+contador_elements+" -> ";
+                    cad+=a;
+
+                    RESULT =cad;
+                    
               CUP$parser$result = parser.getSymbolFactory().newSymbol("elements",5, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -385,12 +416,15 @@ class CUP$parser$actions {
 		int cright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object c = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-
-           String concatenacion="";
-           concatenacion+=a;
-           concatenacion+=b+"\n";
-           concatenacion+=c;
-           RESULT =concatenacion;
+           String cad = "";
+           cad+=a;
+           cad+="elements"+contador_elements+" -> COMA"+contador_coma+"\n";
+           cad+="COMA"+contador_coma+"[label=\",\"]\n";
+           cad+="elements"+contador_elements+" -> ";
+           cad+=c;
+           contador_coma++;
+           RESULT=cad;
+           
               CUP$parser$result = parser.getSymbolFactory().newSymbol("elements",5, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -404,8 +438,13 @@ class CUP$parser$actions {
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
                         String cad = "";
-                        cad +="value[label=\"value\"]\n";
-                        cad +=a;
+                        cad+="value"+contador_value+"\n";
+                        cad+="value"+contador_value+"[label=\"value\"]\n";
+                        cad+="value"+contador_value+"-> CADENA"+contador_value+"\n";
+                        cad+="CADENA"+contador_value+"[label=\"Cadena\"]\n";
+                        cad+="CADENA"+contador_value+" -> a"+contador_value+"\n";
+                        cad+="a"+contador_value+"[label="+a+"]\n";
+                        contador_value++;
                         RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("value",6, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -418,10 +457,16 @@ class CUP$parser$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		String cad = "";
-                                            cad+="CADENA\n";
-                                             cad +=a;
-                                             RESULT =cad;
+		
+                     String cad = "";
+                     cad+="value"+contador_value+"\n";
+                     cad+="value"+contador_value+"[label=\"value\"]\n";
+                     cad+="value"+contador_value+"-> ENTERO"+contador_value+"\n";
+                     cad+="ENTERO"+contador_value+"[label=\"Entero\"]\n";
+                     cad+="ENTERO"+contador_value+" -> a"+contador_value+"\n";
+                     cad+="a"+contador_value+"[label="+a+"]\n";
+                     contador_value++;
+                     RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("value",6, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;
@@ -434,9 +479,14 @@ class CUP$parser$actions {
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		
-        String cad = "";
-        cad+="DECIMAL\n";
-                                              cad +=a;
+       String cad = "";
+       cad+="value"+contador_value+"\n";
+       cad+="value"+contador_value+"[label=\"value\"]\n";
+       cad+="value"+contador_value+"-> DECIMAL"+contador_value+"\n";
+       cad+="DECIMAL"+contador_value+"[label=\"Decimal\"]\n";
+       cad+="DECIMAL"+contador_value+" -> a"+contador_value+"\n";
+       cad+="a"+contador_value+"[label="+a+"]\n";
+       contador_value++;
                                               RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("value",6, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -449,13 +499,13 @@ class CUP$parser$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		String cad = "";
-        cad+="value-> object"+contador_objects+"\n";
-        cad+="object"+contador_objects+"->llaveabre"+contador_objects+"\n";
-        cad+="object"+contador_objects+"->members"+contador_objects+"\n";
-        cad+="object"+contador_objects+"->llavecierra"+contador_objects+"\n";
-        contador_objects++;
-                                             cad +=a;
+		
+                        String cad = "";
+                        cad+="value"+contador_value+"\n";
+                        cad+="value"+contador_value+"[label=\"value\"]\n";
+                        cad+="value"+contador_value+"-> ";
+                        cad+=a;
+                        contador_value++;
                                              RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("value",6, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -468,9 +518,13 @@ class CUP$parser$actions {
 		int aleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-		String cad = "";
-        cad+="value"+contador_val+"->";
-                                            cad +=a;
+		
+        String cad = "";
+        cad+="value"+contador_value+"\n";
+        cad+="value"+contador_value+"[label=\"value\"]\n";
+        cad+="value"+contador_value+"-> ";
+        cad+=a;
+        contador_value++;
                                             RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("value",6, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -484,8 +538,13 @@ class CUP$parser$actions {
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		String cad = "";
-        cad+="RTRUE\n";
-                                            cad +=a;
+        cad+="value"+contador_value+"\n";
+        cad+="value"+contador_value+"[label=\"value\"]\n";
+        cad+="value"+contador_value+"-> RTRUE"+contador_value+"\n";
+        cad+="RTRUE"+contador_value+"[label=\"True\"]\n";
+        cad+="RTRUE"+contador_value+" -> a"+contador_value+"\n";
+        cad+="a"+contador_value+"[label="+a+"]\n";
+                                            contador_value++;
                                             RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("value",6, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -499,8 +558,13 @@ class CUP$parser$actions {
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		String cad = "";
-        cad+="RTRUE\n";
-                                             cad +=a;
+        cad+="value"+contador_value+"\n";
+        cad+="value"+contador_value+"[label=\"value\"]\n";
+        cad+="value"+contador_value+"-> RFALSE"+contador_value+"\n";
+        cad+="RFALSE"+contador_value+"[label=\"False\"]\n";
+        cad+="RFALSE"+contador_value+" -> a"+contador_value+"\n";
+        cad+="a"+contador_value+"[label="+a+"]\n";
+                                             contador_value++;
                                              RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("value",6, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
@@ -514,8 +578,13 @@ class CUP$parser$actions {
 		int aright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		Object a = (Object)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
 		String cad = "";
-        cad+="RTRUE\n";
-                                           cad +=a;
+        cad+="value"+contador_value+"\n";
+        cad+="value"+contador_value+"[label=\"value\"]\n";
+        cad+="value"+contador_value+"-> RNULL"+contador_value+"\n";
+        cad+="RNULL"+contador_value+"[label=\"Null\"]\n";
+        cad+="RNULL"+contador_value+" -> a"+contador_value+"\n";
+        cad+="a"+contador_value+"[label="+a+"]\n";
+                                           contador_value++;
                                            RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("value",6, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }

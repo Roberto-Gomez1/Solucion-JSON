@@ -1,0 +1,127 @@
+package Analizadores;
+import java_cup.runtime.*;
+import java.util.ArrayList;
+
+parser code
+{://Codigo visible
+
+    public void syntax_error(Symbol s){
+        System.out.println("Error sintactico: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+    }
+
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
+        System.out.println("Error NR de sintaxis: "+ s.value +" Linea "+(s.left+1)+" columna "+(s.right+1) );
+    }
+
+:}
+
+terminal LLAVE_ABRE, LLAVE_CIERRA, CORCH_ABRE, CORCH_CIERRA, COMA, DOS_PUNTOS, CADENA, ENTERO, DECIMAL, RTRUE, RFALSE, RNULL;
+
+non terminal json,object, array, members,member,elements,value;
+precedence left COMA;
+
+start with json;
+
+json ::= object:a  {:
+String texto="";
+if (a instanceof String){
+    texto=((String)a).toString();
+}
+Automata nodo = new Automata(texto);
+:} |
+        array:b{:System.out.println(b);:};
+
+object ::= LLAVE_ABRE:a LLAVE_CIERRA:b {::}|
+    LLAVE_ABRE:a members:b LLAVE_CIERRA:c {:
+
+        String cad = "";
+        cad+="Object\n";
+        cad+=a+"\n";
+        cad+=b;
+        cad+=c;
+        RESULT=cad;
+     :} ;
+
+members ::= member:a{:
+            String cad = "";
+            cad+="members\n";
+            cad+=a;
+            RESULT = cad;:}
+          | members:a COMA:b member:c{:
+              String cad = "";
+                      cad+=a;
+                      cad+=b;
+                      cad+=c;
+              RESULT=cad;
+              :};
+
+member ::= value:a DOS_PUNTOS:b value:c {:
+    String cad = "";
+            cad+=a;
+            cad+=b;
+            cad+=c;
+    RESULT=cad;
+:};
+
+array ::= CORCH_ABRE:a CORCH_CIERRA:b{::}
+        | CORCH_ABRE:a elements:b CORCH_CIERRA:c{:
+    String cad = "";
+    cad+="array\n";
+        cad+=a+"\n";
+        cad+=b+"\n";
+        cad+=c+"\n";
+        RESULT =cad;:};
+
+elements ::= value:a {:
+                    String cad = "";
+                    cad+="elements"+"\n";
+                            cad+=a;
+                    RESULT =cad;:}
+           | elements:a COMA:b value:c{:
+
+           String cad = "";
+                                       cad+=a;
+                                       cad+=b;
+                                       cad+=c+"\n";
+           RESULT =cad;:};
+
+value ::= CADENA:a {:
+                        String cad = "";
+                        cad+="Value\n";
+                        cad+="Cadena\n";
+                        cad+=a;
+                        RESULT =cad;:}
+        | ENTERO:a {:
+                     String cad = "";
+                     cad+="Value\n";
+                     cad+="Entero\n";
+                     cad+=a;
+                     RESULT =cad;:}
+        | DECIMAL:a {:
+       String cad = "";
+       cad+="Value\n";
+       cad+="Decimal\n";
+       cad+=a;
+                                              RESULT =cad;:}
+        | object:a {:
+                        String cad = "";
+                        cad+="Value\n";
+                        cad+=a;
+                                             RESULT =cad;:}
+        | array:a {:
+        String cad = "";
+        cad+="Value\n";
+                                                                       cad+=a;
+                                            RESULT =cad;:}
+        | RTRUE:a {:String cad = "";
+        cad+="RTRUE\n";
+                                            cad +=a;
+                                            RESULT =cad;:}
+        | RFALSE:a {:String cad = "";
+        cad+="RTRUE\n";
+                                             cad +=a;
+                                             RESULT =cad;:}
+        | RNULL:a{:String cad = "";
+        cad+="RTRUE\n";
+                                           cad +=a;
+                                           RESULT =cad;:};
