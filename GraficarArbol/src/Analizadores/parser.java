@@ -249,10 +249,10 @@ Automata nodo = new Automata(texto);
         cad+="llaveA"+contador_llaves+"[label=\"{\"]\n";
         cad+="Object"+contador_llaves+" -> ";
         cad+=b;
+        contador_members++;
         cad+="Object"+contador_llaves+" -> llaveC"+contador_llaves+"\n";
         cad+="llaveC"+contador_llaves+"[label=\"}\"]\n";
         contador_llaves++;
-        contador_members++;
         RESULT=cad;
      
               CUP$parser$result = parser.getSymbolFactory().newSymbol("object",1, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
@@ -373,10 +373,10 @@ Automata nodo = new Automata(texto);
         cad+="corchA"+contador_array+"[label=\"[\"]\n";
         cad+="array"+contador_array+" -> ";
         cad+=b+"\n";
+        contador_elements++;
         cad+="array"+contador_array+" -> corchC"+contador_array+"\n";
         cad+="corchC"+contador_array+"[label=\"]\"]\n";
         contador_array++;
-        contador_elements++;
         RESULT =cad;
               CUP$parser$result = parser.getSymbolFactory().newSymbol("array",2, ((java_cup.runtime.Symbol)CUP$parser$stack.elementAt(CUP$parser$top-2)), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
